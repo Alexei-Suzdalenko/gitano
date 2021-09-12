@@ -18,3 +18,5 @@ createApp(App).use(store).use(router).mount('#app')
 // https://technext.github.io/yavin/index.html#header 
 // https://technext.github.io/nubis/index.html
 // vue js template
+
+

@@ -1,6 +1,9 @@
 .header_title{
     color: #414141; margin-left:11px; padding-bottom: 11px; font-size:15px;
    }
+.navbar-brand:hover, .list_map_site:hover{
+    text-decoration: none;
+}
 .icon_image{
      font-size: 15px; color: #414141; margin-top: 11px;
    }
@@ -15,4 +18,19 @@
 }
 .images_details2{
     border-radius: 70% 40% 40% 70%/70% 70% 40% 40%;
+}
+.fa-whatsapp{
+     padding: 0px;
+}
+.p-large{
+    color: black; font-weight: 900;
+}
+.list_cities{
+    margin-left: 4px; margin-right: 4px; font-size: 11px; line-height: 10px;
+} 
+.list_map_site{
+    font-size: 21px!Important; text-decoration: none; 
+}
+.description_text{
+    font-weight: 900; font-size: 18px;
 }
