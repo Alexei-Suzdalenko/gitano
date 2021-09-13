@@ -18,11 +18,11 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <router-link class="card list_map_site" v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/' + deleteEmptySpaces(city.work) + '/' + deleteEmptySpaces(city.city)">
+                    <a class="card list_map_site" v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:href="'/' + deleteEmptySpaces(city.work) + '/' + deleteEmptySpaces(city.city)">
                         <div class="card-body">
                             <h6 class="card-title">{{ city.work }} {{ city.city }}</h6> 
                         </div>
-                    </router-link>
+                    </a>
                    
                 </div> 
             </div> 
@@ -31,18 +31,19 @@
 </template>
 <script>
 import storageCitiesWorks from '@/storage/cities';
+import pueblos from '@/storage/listado_pueblos.js';
 export default{
     data(){
         return{
             listCitiesAndWorks: []
         }
     },
-    created(){
+    created(){ 
        let arrayPrepare = []; 
-       for (let city of storageCitiesWorks.cities) {
+       for (let city of pueblos.listadoPueblos) {
            for(let workData of storageCitiesWorks.works){
                let currentObj = {};
-               currentObj.city = city;
+               currentObj.city = city.toLowerCase().capitalize();
                currentObj.work = workData;
                arrayPrepare.push(currentObj);
            }

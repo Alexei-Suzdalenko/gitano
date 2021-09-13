@@ -71,14 +71,14 @@
                 </div> 
 
                 <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="p-small statement">Creado con <a href="https://suzdalenko.com" target="_blank">Google Pages</a></p>
+                    <p class="p-small statement"><a href="https://suzdalenko.com" target="_blank">Creado con Google</a></p>
                 </div>
             </div> 
         </div>
         <div style="text-align: center; line-height: 7px;">
-            <router-link v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
+            <a v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:href="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
                 {{ city }}
-            </router-link>
+            </a>
         </div>
     </div>
 </template>

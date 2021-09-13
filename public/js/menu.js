@@ -11,19 +11,25 @@ let body_id = document.getElementById('body_id');
     });
 
 
-function initMap() {
+function initMap() { 
       let cityCurrent = window.location.href;
       let cityCurr = cityCurrent.split('/');
       let cuidad = cityCurr[cityCurr.length-1].replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');
-   
-console.log('cuidad => ', cuidad);          
-      let address = 'España, Cantabria,' +  cityCurr[cityCurr.length-1];
+      let tiposDeTrabajos = [ 'Mudanzas', 'Vaciados de pisos', 'Reformas', 'Pintura', 'Recogida muebles', 'Limpiezas' ].toString();
+      let currentWork = cityCurr[cityCurr.length-2];
+
+      if(tiposDeTrabajos.includes(currentWork) ){;}
+      else {
+        return;
+      }      
+     
+      let address = 'España, Cantabria,' + cuidad;
 
       new google.maps.Geocoder().geocode({ 'address': address }, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             console.log('place_id =>', results[0].place_id);
             window.mudanzas_reto = results[0].place_id;
-console.log('mudanzas_reto => ' + window.mudanzas_reto)
+
             
             window.test.getListReferencesFotosFromPlaceId(results[0].place_id);
 

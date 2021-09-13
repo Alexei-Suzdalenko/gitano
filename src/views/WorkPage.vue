@@ -4,7 +4,10 @@
     <div class="ex-basic-1 pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="text-box mb-5" v-if="photo_referenceArray.length > 0">
+                        <h3>Fotos {{ cityPage() }} Cantabria</h3>
+                </div>
+                <div class="col-lg-12" v-if="photo_referenceArray.length > 0">
                     <img class="img-fluid mt-5 mb-3" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="workPage() + ' ' + cityPage()">
                 </div>
             </div> 
@@ -13,10 +16,7 @@
     <div class="ex-basic-1 pt-3 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-xl-10 offset-xl-1">
-                   <div class="text-box mb-5">
-                        <h3>Algunas fotos de los lugares en los que hemos trabajado.</h3>
-                    </div> 
+                <div class="col-xl-10 offset-xl-1"> 
                     <span v-for="(refer, index) in photo_referenceArray"  v-bind:key="index">
                         <img v-if="photo_referenceArray[index+1]" class="img-fluid mb-5" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[index+1]" v-bind:alt="workPage() + ' ' + cityPage()">
                     </span>
