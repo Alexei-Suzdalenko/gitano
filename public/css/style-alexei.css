@@ -27,6 +27,9 @@
 }
 .list_cities{
     margin-left: 4px; margin-right: 4px; font-size: 11px; line-height: 10px;
+}
+.list_cities:hover, .card-title:hover{
+    color:#0092FF; 
 } 
 .list_map_site{
     font-size: 21px!Important; text-decoration: none; 

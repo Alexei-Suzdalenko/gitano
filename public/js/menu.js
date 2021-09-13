@@ -16,7 +16,7 @@ function initMap() {
       let cityCurr = cityCurrent.split('/');
       let cuidad = cityCurr[cityCurr.length-1].replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');
       let tiposDeTrabajos = [ 'Mudanzas', 'Vaciados de pisos', 'Reformas', 'Pintura', 'Recogida muebles', 'Limpiezas' ].toString();
-      let currentWork = cityCurr[cityCurr.length-2];
+      let currentWork = cityCurr[cityCurr.length-2].replace('-', ' ').replace('-', ' ');
 
       if(tiposDeTrabajos.includes(currentWork) ){;}
       else {

@@ -64,6 +64,7 @@
                     <ul class="list-unstyled li-space-lg p-small">
                         <li><a href="#">Aviso legal</a></li>
                         <li><a href="#">Politica de privacidad</a></li>
+                        <a href="https://suzdalenko.com" target="_blank">Creado con Google</a>
                     </ul>
                 </div> 
                 <div class="col-lg-3 col-md-12 col-sm-12">
@@ -71,7 +72,7 @@
                 </div> 
 
                 <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="p-small statement"><a href="https://suzdalenko.com" target="_blank">Creado con Google</a></p>
+                    <p class="p-small statement">Página web en construcción</p>
                 </div>
             </div> 
         </div>

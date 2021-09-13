@@ -58,7 +58,7 @@ export default{
       getListReferencesFotosFromPlaceId(place_id){
           let emptyPhotoArray = []; 
           fetch('https://perersburgfree.000webhostapp.com/get_ref.php?place_id=' + place_id).then(res => res.json()).then(response => {
-              console.log(response);
+              
               let referencesFotosArray = response.result.photos;
               referencesFotosArray.forEach(function(item, index){
                  emptyPhotoArray.push(item.photo_reference)
