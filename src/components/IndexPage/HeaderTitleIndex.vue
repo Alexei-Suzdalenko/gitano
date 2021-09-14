@@ -23,13 +23,16 @@
 export default {
     created(){
         setInterval(function() {
-            let image_title_id = document.getElementById('image_title_id');
-            let srcString      = image_title_id.src;
-            if(srcString.includes('camion')){
-                image_title_id.src = '/img/loading-van.png';
-            } else {
-                image_title_id.src = '/img/camion.png';
-            }
+                try {
+                        let image_title_id = document.getElementById('image_title_id');
+                        let srcString      = image_title_id.src;
+                        if(srcString.includes('camion')){
+                            image_title_id.src = '/img/loading-van.png';
+                        } else {
+                            image_title_id.src = '/img/camion.png';
+                        }
+                    }
+                catch(err) {console.log('dupanov alexei was here https://suzdalenko.com');}
         }, 7000)
     }
 }

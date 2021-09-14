@@ -24,21 +24,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle open_small_menu" v-on:click="openCloseMenu()" id="mas_option">Más</a>
                         <ul class="dropdown-menu show" id="smallListMenuButton" > <!-- style="display: block;" -->
-                            <li><router-link class="dropdown-item" to="#">Mudanzas</router-link></li>
+                            <li><router-link class="dropdown-item" v-bind:to="infoPages[0]">Mudanzas</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><router-link class="dropdown-item" to="#">Vaciados</router-link></li>
+                            <li><router-link class="dropdown-item" v-bind:to="infoPages[1]">Vaciados</router-link></li>
                             <li><div class="dropdown-divider"></div></li>        
-                             <li><router-link class="dropdown-item" to="#">Reformas</router-link></li>
+                             <li><router-link class="dropdown-item" v-bind:to="infoPages[2]">Reformas</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
-                             <li><router-link class="dropdown-item" to="#">Pintura</router-link></li>
-                            <li><div class="dropdown-divider"></div></li>
-                             <li><router-link class="dropdown-item" to="#">Recogida</router-link></li>
+                             <li><router-link class="dropdown-item" v-bind:to="infoPages[3]">Pintura</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
                              <li><router-link class="dropdown-item" to="/cuidades">Cuidades</router-link></li>
-                            <li><div class="dropdown-divider"></div></li>
-                            <li><router-link class="dropdown-item" to="#">Aviso legal</router-link></li>
-                            <li><div class="dropdown-divider"></div></li>
-                            <li><router-link class="dropdown-item" to="#">Politica de privacidad</router-link></li>
                         </ul>
                     </li>
                 </ul>
@@ -51,7 +45,13 @@
 </template>
 <script>
 var juiPui = true;
+import infoPages from '@/storage/list_work_detail';
 export default{
+    data(){
+        return { 
+            infoPages : infoPages.listWorkDetail
+        }
+    },
     methods: {
         openCloseMenu(){
          let smallListMenuButton = document.getElementById('smallListMenuButton');

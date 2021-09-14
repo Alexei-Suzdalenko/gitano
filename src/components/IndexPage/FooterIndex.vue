@@ -97,11 +97,13 @@ export default{
           arrayPrepare.push(city)
        }
        this.listCitiesAndWorks = arrayPrepare; 
+       console.log(this.$route.query.page);
     },
     methods: {
         deleteEmptySpaces(x){
             return x.replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-');
-        }
+        },
+        
     }
 }
 </script>

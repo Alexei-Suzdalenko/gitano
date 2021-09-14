@@ -1,7 +1,7 @@
 .header_title{
     color: #414141; margin-left:11px; padding-bottom: 11px; font-size:15px;
    }
-.navbar-brand:hover, .list_map_site:hover{
+.navbar-brand:hover, .list_map_site:hover, .a_title_page, .a_title_page:hover{
     text-decoration: none;
 }
 .icon_image{
