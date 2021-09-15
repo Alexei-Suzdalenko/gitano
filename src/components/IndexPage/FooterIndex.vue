@@ -7,11 +7,11 @@
                         <h2>Servicio atención al cliente</h2>
                         <p class="p-large">En Mudanzas Reto estamos a tu plena disposición con cualquier tipo de pregunta duda o sugerencia, no dudes en escribirnos o llamarnos. <br> Trabajamos para ti</p>
                         <a class="btn-solid-lg" href="https://api.whatsapp.com/send?phone=34722337385&text=Hola"><i class="fab fa-whatsapp"> 722 33 73 85</i></a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
+                    </div> 
+                </div>
+            </div> 
+        </div>
+    </div> 
     
     <div class="footer bg-gray">
         <img class="decoration-circles" src="/images/decoration-circles.png" alt="Mudanzas Centro Reto">
@@ -74,14 +74,19 @@
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <p class="p-small statement">Página web en construcción</p>
                 </div>
-            </div> 
-        </div>
-        <div style="text-align: center; line-height: 7px;">
-            <a v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:href="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
-                {{ city }}
-            </a>
+            </div>
+        </div>       
+        <div class="container">
+            <div class="row">
+                <div>
+                     <a v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:href="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
+                        {{ city }}
+                     </a>
+                </div>
+            </div>
         </div>
     </div>
+ 
 </template>
 <script>
 import storageCitiesWorks from '@/storage/cities';
@@ -97,13 +102,27 @@ export default{
           arrayPrepare.push(city)
        }
        this.listCitiesAndWorks = arrayPrepare; 
-       console.log(this.$route.query.page);
+       this.insertScriptGooglePages();
     },
     methods: {
         deleteEmptySpaces(x){
             return x.replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-');
         },
-        
+        insertScriptGooglePages(){
+            var scriptMap = document.createElement('script');
+            scriptMap.onload = function() {};
+
+            scriptMap.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcJoJrGaUb_Gx1GJ2Swnh2N3gdF926Gw&callback=initMap";
+            
+            let cityCurrent = window.location.href;
+            let cityCurr = cityCurrent.split('/');
+            let tiposDeTrabajos = [ 'Mudanzas', 'Vaciados de pisos', 'Reformas', 'Pintura', 'Recogida muebles', 'Limpiezas' ].toString();
+            let currentWork = cityCurr[cityCurr.length-2].replace('-', ' ').replace('-', ' ');
+            
+            if(tiposDeTrabajos.includes(currentWork) ){
+                document.getElementsByTagName('head')[0].appendChild(scriptMap);
+            }
+        }
     }
 }
 </script>

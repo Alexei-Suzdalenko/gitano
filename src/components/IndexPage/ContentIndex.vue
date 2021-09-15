@@ -59,7 +59,7 @@
                         <h2>Mudanzas a particulares y empresas</h2>
                         <p>Sabemos que una mudanza o un traslado es una operación complicada, y por eso queremos ponerte las cosas lo más fáciles posible. <br><br>
                          La transparencia, la flexibilidad y un trato cercano y honesto son valores fundamentales en nuestro código ético.</p>
-                        <a class="btn-solid-reg" href="#">...Más</a>
+                        <router-link class="btn-solid-reg" to="/Mudanzas-particulares-y-empresas-Cantabria">...Más</router-link>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -79,7 +79,7 @@
                             No importa si tu inmueble está habitado o deshabitado, realizamos un trabajo reponsable, profesional, en un tiempo récord y sin incomodar a sus vecinos o personas que vivan en el inmueble. <br><br>
                             Hacemos uso de puntos limpios más cercanos de la zona y también damos la segunda vida a las cosas que se puede reciclar.        
                         </p>
-                        <a class="btn-outline-reg" href="#">...Más</a>
+                        <router-link class="btn-outline-reg" to="/Vaciados-de-pisos-garages-recogida-de-muebles-y-chatarra-Cantabria">...Más</router-link>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
@@ -102,46 +102,37 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <!-- Card -->
                     <div class="card">
                         <img class="img-fluid" src="/img/reformas.png" alt="Reformas Mudanzas Centro Reto Cantabria">
                         <div class="card-body">
                             <h5 class="card-title">Reformas</h5>
                             <p class="card-text">Ofrecemos calidad a precios competitivos, buscando siempre las soluciones a todas tus necesidades, porque nos apasiona nuestro trabajo y queremos que nuestros clientes queden satisfechos.
-                                <a class="blue no-line" href="#">...Más</a></p>
+                                <router-link class="blue no-line" to="/Reformas-construccion-Cantabria">...Más</router-link></p>
                         </div>
                     </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
                     <div class="card">
-                        <img class="img-fluid" src="/img/pintura.png" alt="alternative">
+                        <img class="img-fluid" src="/img/pintura.png" alt="Pinturas Cantabria">
                         <div class="card-body">
                             <h5 class="card-title">Pintura</h5>
                             <p class="card-text">Los esmaltes con los que trabajamos en tipo semi-laca son sintéticos, que aportan una gran resistencia y elasticidad así mismo un tacto muy agradable y de gran facilidad de limpieza.
-                                 <a class="blue no-line" href="#">...Mas</a></p>
+                                 <router-link class="blue no-line" to="/Pinturas-Cantabria">...Mas</router-link></p>
                         </div>
                     </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
                     <div class="card">
-                        <img class="img-fluid" src="/img/removal2.png" alt="alternative">
+                        <img class="img-fluid" src="/img/removal2.png" alt="Vaciados de pisos garages recogida de muebles chatarra Cantabria">
                         <div class="card-body">
                             <h5 class="card-title">Recogida de enseres</h5>
                             <p class="card-text">Hacemos recogida de muebles, electrodomésticos y otros enseres. 
                                 Si los enseres a retirar son aprovechables y se encuentran en buen uso,  su retirada puede ser gratuita.
-                                <a class="blue no-line" href="#">...Más</a></p>
+                                <router-link class="blue no-line" to="/Vaciados-de-pisos-garages-recogida-de-muebles-y-chatarra-Cantabria">...Más</router-link></p>
                         </div>
                     </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
+                </div>
+            </div>
+        </div> 
     </div>
 
-    <!-- Features -->
+ 
     <div class="accordion-1">
         <div class="container">
             <div class="row">
@@ -219,6 +210,5 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of accordion-1 -->
-    <!-- end of features -->    
+    </div> <!-- end of accordion-1 -->   
 </template>

@@ -8,7 +8,7 @@
                         <h3>Fotos {{ cityPage() }} Cantabria</h3>
                 </div>
                 <div class="col-lg-12" v-if="photo_referenceArray.length > 0">
-                    <img class="img-fluid mt-5 mb-3" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="workPage() + ' ' + cityPage()">
+                    <img class="img-fluid mt-5 mb-3" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="cityPage()">
                 </div>
             </div> 
         </div> 
@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-xl-10 offset-xl-1"> 
                     <span v-for="(refer, index) in photo_referenceArray"  v-bind:key="index">
-                        <img v-if="photo_referenceArray[index+1]" class="img-fluid mb-5" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[index+1]" v-bind:alt="workPage() + ' ' + cityPage()">
+                        <img v-if="photo_referenceArray[index+1]" class="img-fluid mb-5" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[index+1]" v-bind:alt="cityPage() + ' Cantabria'">
                     </span>
                     
             
@@ -60,10 +60,13 @@ export default{
           fetch('https://perersburgfree.000webhostapp.com/get_ref.php?place_id=' + place_id).then(res => res.json()).then(response => {
               
               let referencesFotosArray = response.result.photos;
-              referencesFotosArray.forEach(function(item, index){
-                 emptyPhotoArray.push(item.photo_reference)
-              });
-              this.photo_referenceArray = emptyPhotoArray;
+              console.log('referencesFotosArray', referencesFotosArray);
+              if(referencesFotosArray){
+                  referencesFotosArray.forEach(function(item, index){
+                    emptyPhotoArray.push(item.photo_reference)
+                  });
+                  this.photo_referenceArray = emptyPhotoArray;
+              }
           })
       }
     }, 

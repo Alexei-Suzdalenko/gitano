@@ -1,7 +1,7 @@
 <template>
     <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand logo-image" href="/" style="margin-top:-11px;" target="_blank">
+            <a class="navbar-brand logo-image" href="/" style="margin-top:-11px;">
                 <i class="fa fa-truck icon_image" aria-hidden="true"></i> <span class="header_title">MUDANZAS RETO</span>
             </a> 
             <button class="navbar-toggler p-0 border-0" type="button" aria-label="Toggle navigation" v-on:click="openMainMenu">
@@ -23,16 +23,16 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle open_small_menu" v-on:click="openCloseMenu()" id="mas_option">Más</a>
-                        <ul class="dropdown-menu show" id="smallListMenuButton" > <!-- style="display: block;" -->
-                            <li><router-link class="dropdown-item" v-bind:to="infoPages[0]">Mudanzas</router-link></li>
+                        <ul class="dropdown-menu show" id="smallListMenuButton" >
+                            <li><router-link class="dropdown-item" v-bind:to="'/'+infoPages[0]">Mudanzas</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><router-link class="dropdown-item" v-bind:to="infoPages[1]">Vaciados</router-link></li>
+                            <li><router-link class="dropdown-item" v-bind:to="'/'+infoPages[1]">Vaciados</router-link></li>
                             <li><div class="dropdown-divider"></div></li>        
-                             <li><router-link class="dropdown-item" v-bind:to="infoPages[2]">Reformas</router-link></li>
+                             <li><router-link class="dropdown-item" v-bind:to="'/'+infoPages[2]">Reformas</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
-                             <li><router-link class="dropdown-item" v-bind:to="infoPages[3]">Pintura</router-link></li>
+                             <li><router-link class="dropdown-item" v-bind:to="'/'+infoPages[3]">Pintura</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
-                             <li><router-link class="dropdown-item" to="/cuidades">Cuidades</router-link></li>
+                             <li><a class="dropdown-item" href="/cuidades">Cuidades</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -32,9 +32,10 @@ function initMap() {
 
             
             window.test.getListReferencesFotosFromPlaceId(results[0].place_id);
+            console.log('results[0].place_id', results[0].place_id);
 
           } else {
-              alert('Geocode was not successful for the following reason: ' + status);
+              console.log('Geocode was not successful for the following reason: ' + status);
           }
       });
 }
