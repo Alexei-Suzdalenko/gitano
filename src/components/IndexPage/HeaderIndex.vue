@@ -1,9 +1,9 @@
 <template>
     <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand logo-image" href="/" style="margin-top:-11px;">
+            <router-link class="navbar-brand logo-image" to="/" style="margin-top:-11px;">
                 <i class="fa fa-truck icon_image" aria-hidden="true"></i> <span class="header_title">MUDANZAS RETO</span>
-            </a> 
+            </router-link> 
             <button class="navbar-toggler p-0 border-0" type="button" aria-label="Toggle navigation" v-on:click="openMainMenu">
                 <span class="navbar-toggler-icon" id="click_button_top_menu"></span>
             </button>
@@ -32,7 +32,7 @@
                             <li><div class="dropdown-divider"></div></li>
                              <li><router-link class="dropdown-item" v-bind:to="'/'+infoPages[3]">Pintura</router-link></li>
                             <li><div class="dropdown-divider"></div></li>
-                             <li><a class="dropdown-item" href="/cuidades">Cuidades</a></li>
+                             <li><router-link class="dropdown-item" to="/cuidades">Cuidades</router-link></li>
                         </ul>
                     </li>
                 </ul>

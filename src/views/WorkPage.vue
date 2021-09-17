@@ -7,21 +7,22 @@
                 <div class="text-box mb-5" v-if="photo_referenceArray.length > 0">
                         <h3>Fotos {{ cityPage() }} Cantabria</h3>
                 </div>
-                <div class="col-lg-12" v-if="photo_referenceArray.length > 0">
-                    <img class="img-fluid mt-5 mb-3" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="cityPage()">
+                <div style="text-align:center;" v-if="isLoading">
+                    <img src="/img/loading.gif" alt="Mudanzas Reto Cantabria" class="img_loading" />
+                </div>
+                <div class="col-lg-12" v-if="photo_referenceArray.length > 0 && !isLoading">
+                    <img class="img-fluid mt-5 mb-3" v-on:load="onImgLoad" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="cityPage()">
                 </div>
             </div> 
         </div> 
     </div>
-    <div class="ex-basic-1 pt-3 pb-5">
+    <div class="ex-basic-1 pt-3 pb-5" v-if="showMoreImages">
         <div class="container">
             <div class="row">
                 <div class="col-xl-10 offset-xl-1"> 
                     <span v-for="(refer, index) in photo_referenceArray"  v-bind:key="index">
                         <img v-if="photo_referenceArray[index+1]" class="img-fluid mb-5" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[index+1]" v-bind:alt="cityPage() + ' Cantabria'">
                     </span>
-                    
-            
                     <ContentWorkPage v-bind:cityPage="cityPage()" />
                 </div> 
             </div> 
@@ -41,33 +42,38 @@ export default{
     components: { HeaderIndex, HeaderBottom, ContentWorkPage, FooterIndex },
     data (){
         return {
-            photo_referenceArray: [], 
-           
+            photo_referenceArray: [], showMoreImages: false,   
         }
     },
     created (){ 
+        this.isLoading = true;
     },
     methods: { 
-       current_reference(){ 
-           return 'window.mudanzas_reto';
-       },
        workPage(){
-           return this.$route.params.work.replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');},
-       cityPage(){ return this.$route.params.city.replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');},
-
+           return this.$route.params.work.replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');
+       },
+       cityPage(){
+            return this.$route.params.city.replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');
+       },
       getListReferencesFotosFromPlaceId(place_id){
           let emptyPhotoArray = []; 
           fetch('https://perersburgfree.000webhostapp.com/get_ref.php?place_id=' + place_id).then(res => res.json()).then(response => {
               
               let referencesFotosArray = response.result.photos;
-              console.log('referencesFotosArray', referencesFotosArray);
+             
               if(referencesFotosArray){
                   referencesFotosArray.forEach(function(item, index){
                     emptyPhotoArray.push(item.photo_reference)
                   });
                   this.photo_referenceArray = emptyPhotoArray;
+                  this.isLoading = false;
+              } else {
+                  this.photo_referenceArray = [];
               }
           })
+      },
+      onImgLoad(){
+         this.showMoreImages = true;
       }
     }, 
     mounted: function () {

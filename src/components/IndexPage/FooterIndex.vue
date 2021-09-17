@@ -36,7 +36,7 @@
                         <span class="fa-stack">
                              <a href="https://suzdalenko.com" target="_blank">
                                 <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
+                                <i class="fab fa-google fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
@@ -64,29 +64,23 @@
                     <ul class="list-unstyled li-space-lg p-small">
                         <li><a href="#">Aviso legal</a></li>
                         <li><a href="#">Politica de privacidad</a></li>
-                        <a href="https://suzdalenko.com" target="_blank">Creado con Google</a>
                     </ul>
                 </div> 
-                <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="p-small statement">Copyright © <a href="#">Mudanzas Reto</a></p>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <p class="p-small statement"><a href="/sitemap.xml" target="_blank">Copyright © Mudanzas Reto {{currentId()}}</a></p>
                 </div> 
-
-                <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="p-small statement">Página web en construcción</p>
-                </div>
             </div>
         </div>       
         <div class="container">
             <div class="row">
                 <div>
-                     <a v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:href="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
+                     <router-link v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
                         {{ city }}
-                     </a>
+                     </router-link>
                 </div>
             </div>
         </div>
     </div>
- 
 </template>
 <script>
 import storageCitiesWorks from '@/storage/cities';
@@ -102,16 +96,30 @@ export default{
           arrayPrepare.push(city)
        }
        this.listCitiesAndWorks = arrayPrepare; 
-       this.insertScriptGooglePages();
     },
     methods: {
+        currentId(){ 
+          this.insertScriptGooglePages();
+          return this.$route.params.workDetail;
+        },
         deleteEmptySpaces(x){
             return x.replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-');
         },
         insertScriptGooglePages(){
             var scriptMap = document.createElement('script');
-            scriptMap.onload = function() {};
+            scriptMap.onload = function() {
+                document.querySelector("[src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcJoJrGaUb_Gx1GJ2Swnh2N3gdF926Gw&callback=initMap']").remove()
+                var el = document.getElementsByTagName('head')[0]
+                let scripts = el.getElementsByTagName( 'script' ); 
+                console.log('el', el)
+                console.log('scripts', scripts)
+                for(var i = 0; i < scripts.length; i++) {
+                 let sc = scripts[i];
+                 sc.remove();
+                }
 
+            };
+            scriptMap.type = 'text/javascript';
             scriptMap.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcJoJrGaUb_Gx1GJ2Swnh2N3gdF926Gw&callback=initMap";
             
             let cityCurrent = window.location.href;
@@ -121,7 +129,10 @@ export default{
             
             if(tiposDeTrabajos.includes(currentWork) ){
                 document.getElementsByTagName('head')[0].appendChild(scriptMap);
+            } else {
+           
             }
+            window.scrollTo(0, 0);
         }
     }
 }

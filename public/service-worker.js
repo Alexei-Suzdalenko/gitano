@@ -17,7 +17,7 @@ importScripts(
   "/precache-manifest.e7825c800ea9f67b6c9250f3e8f72cee.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "blog"});
+workbox.core.setCacheNameDetails({prefix: "Mudanzas Reto"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {

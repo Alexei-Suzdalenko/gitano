@@ -54,9 +54,7 @@ export default {
         title: '', desc1: '', desc2: '', images: []
     };
   },
-  created() {
-     // this.thatIsPageRoute( this.$route.params.workDetail )
-  },
+  created() {},
   methods: { 
       currentId(){
           this.thatIsPageRoute(this.$route.params.workDetail);
@@ -69,7 +67,7 @@ export default {
               case infoPages.listWorkDetail[1] : objInfo = infoPages.infoPages[1] ; break;
               case infoPages.listWorkDetail[2] : objInfo = infoPages.infoPages[2] ; break;
               case infoPages.listWorkDetail[3] : objInfo = infoPages.infoPages[3] ; break;  
-              default: window.location.href = '/';   
+              default: this.$router.push('/404'); 
           }
           if(objInfo != 'none'){
               this.title = objInfo.title;

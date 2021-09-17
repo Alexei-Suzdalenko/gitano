@@ -27,12 +27,12 @@ function initMap() {
 
       new google.maps.Geocoder().geocode({ 'address': address }, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            console.log('place_id =>', results[0].place_id);
+         
             window.mudanzas_reto = results[0].place_id;
 
             
             window.test.getListReferencesFotosFromPlaceId(results[0].place_id);
-            console.log('results[0].place_id', results[0].place_id);
+           
 
           } else {
               console.log('Geocode was not successful for the following reason: ' + status);

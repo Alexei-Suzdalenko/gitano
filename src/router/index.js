@@ -3,6 +3,7 @@ import Index from '../views/Index';
 import WorkPage from '../views/WorkPage';
 import Cuidades from '../views/Cuidades';
 import MenuWorkDetail from '../views/MenuWorkDetail';
+import NotFound from '../views/404';
 
 const routes = [
   {
@@ -19,7 +20,12 @@ const routes = [
   },{
     path: '/:workDetail',
     component: MenuWorkDetail,
-  },
+  },{ 
+    path: '/404',
+    component: NotFound 
+  },{
+    path: '/:catchAll(.*)', redirect: '/404' 
+  }  
 ];
 
 const router = createRouter({history: createWebHistory(process.env.BASE_URL), routes});

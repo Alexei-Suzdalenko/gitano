@@ -9,12 +9,6 @@ import ContentMenuWorkDetail from '@/components/MenuWorkDetail/ContentMenuWorkDe
 import FooterIndex from '@/components/IndexPage/FooterIndex';
 export default{
     components: { HeaderIndex, ContentMenuWorkDetail, FooterIndex },
-    data (){
-        return {}
-    },
-    created (){
-     
-    }
 }
 
 </script>

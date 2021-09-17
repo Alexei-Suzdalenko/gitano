@@ -37,3 +37,6 @@
 .description_text{
     font-weight: 900; font-size: 18px;
 }
+.img_loading{
+    width: 400px; height: 400px;
+}

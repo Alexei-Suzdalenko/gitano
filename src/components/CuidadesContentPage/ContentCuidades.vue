@@ -18,11 +18,11 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <a class="card list_map_site" v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:href="'/' + deleteEmptySpaces(city.work) + '/' + deleteEmptySpaces(city.city)">
+                    <router-link class="card list_map_site" v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/' + deleteEmptySpaces(city.work) + '/' + deleteEmptySpaces(city.city)">
                         <div class="card-body">
                             <h6 class="card-title">{{ city.work }} {{ city.city }}</h6> 
                         </div>
-                    </a>
+                    </router-link>
                    
                 </div> 
             </div> 

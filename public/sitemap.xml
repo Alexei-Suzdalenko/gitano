@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-  <loc>http://www.urvimar.com/</loc>
+  <loc>https://mudanzasreto.com</loc>
   <priority>1</priority>
     <changefreq>daily</changefreq>
 </url>
 <url>
-  <loc>http://www.urvimar.com/galeria/</loc>
-  <priority>0.7</priority>
+  <loc>https://mudanzasreto.com/cidades</loc>
+  <priority>0.9</priority>
     <changefreq>daily</changefreq>
 </url>
 
