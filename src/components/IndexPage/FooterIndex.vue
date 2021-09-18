@@ -138,20 +138,20 @@ export default{
         }, 
         pushNewViewUser(){ 
             let thisContextApp = this;
-            fetch('http://ip-api.com/json/?fields=status,message,countryCode').then(res => res.json()).then(res => {
-                app.database().ref('all_views/' + new Date().getTime().toString()).set(res.countryCode);
-            });
-            if( window.localStorage.getItem('user') != 'user' ){
-                app.database().ref('unique_id').get().then((snapshot) => {
+
+            app.database().ref('all_views/' + new Date().getTime().toString()).set(window.location.pathname);
+
+            app.database().ref('unique_id').get().then((snapshot) => {
                     if (snapshot.exists()) {
                       let numberOfUsers = snapshot.val();
-                      ++numberOfUsers;
-                      app.database().ref('unique_id').set(numberOfUsers);
                       thisContextApp.views = numberOfUsers;
+                      ++numberOfUsers;
+                      if( window.localStorage.getItem('user') != 'user' ){
+                           app.database().ref('unique_id').set(numberOfUsers);
+                           window.localStorage.setItem('user', 'user'); 
+                      }
                     } 
-                });   
-            }
-           window.localStorage.setItem('user', 'user');
+            });  
         }
     }
 }

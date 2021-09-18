@@ -7,10 +7,7 @@
                 <div class="text-box mb-5" v-if="photo_referenceArray.length > 0">
                         <h3>Fotos {{ cityPage() }} Cantabria</h3>
                 </div>
-                <div style="text-align:center;" v-if="isLoading">
-                    <img src="/img/loading.gif" alt="Mudanzas Reto Cantabria" class="img_loading" />
-                </div>
-                <div class="col-lg-12" v-if="photo_referenceArray.length > 0 && !isLoading">
+                <div class="col-lg-12" v-if="photo_referenceArray.length > 0">
                     <img class="img-fluid mt-5 mb-3" v-on:load="onImgLoad" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="cityPage()">
                 </div>
             </div> 
