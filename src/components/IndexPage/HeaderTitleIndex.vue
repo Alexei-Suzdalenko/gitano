@@ -29,7 +29,7 @@ export default {
                         if(srcString.includes('camion')){
                             image_title_id.src = '/img/loading-van.png';
                         } else {
-                            image_title_id.src = '/img/android-chrome-192x192.png';
+                            image_title_id.src = '/img/camion.png';
                         }
                     }
                 catch(err) {console.log('dupanov alexei was here https://suzdalenko.com');}

@@ -62,8 +62,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul class="list-unstyled li-space-lg p-small">
-                        <li><a href="#">Aviso legal</a></li>
-                        <li><a href="#">Politica de privacidad</a></li>
+                        <li><a href="#">Aviso legal y politica de privacidad</a></li>
+                        <li><a href="/">Visitas {{ views }}</a></li>
                     </ul>
                 </div> 
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -84,10 +84,11 @@
 </template>
 <script>
 import storageCitiesWorks from '@/storage/cities';
+import app from "firebase/app";
 export default{
     data(){
         return{
-            listCitiesAndWorks: []
+            listCitiesAndWorks: [], views: 0
         }
     },
     created(){
@@ -96,6 +97,7 @@ export default{
           arrayPrepare.push(city)
        }
        this.listCitiesAndWorks = arrayPrepare; 
+       this.pushNewViewUser();
     },
     methods: {
         currentId(){ 
@@ -133,7 +135,51 @@ export default{
            
             }
             window.scrollTo(0, 0);
+        }, 
+        pushNewViewUser(){ 
+            let thisContextApp = this;
+            fetch('http://ip-api.com/json/?fields=status,message,countryCode').then(res => res.json()).then(res => {
+                app.database().ref('all_views/' + new Date().getTime().toString()).set(res.countryCode);
+            });
+            if( window.localStorage.getItem('user') != 'user' ){
+                app.database().ref('unique_id').get().then((snapshot) => {
+                    if (snapshot.exists()) {
+                      let numberOfUsers = snapshot.val();
+                      ++numberOfUsers;
+                      app.database().ref('unique_id').set(numberOfUsers);
+                      thisContextApp.views = numberOfUsers;
+                    } 
+                });   
+            }
+           window.localStorage.setItem('user', 'user');
         }
     }
 }
+
+
+
+//  import app from "firebase/app";
+//  export default {
+//    created(){
+//    
+//      app.database().ref('users/' + "userId").set({
+//        username: "name",
+//        email: "email",
+//        profile_picture : "imageUrl"
+//      });
+//    
+//    },  
+//    methods: {
+//           send(){
+//             if(this.name.length < 3 || this.web.length < 3 || this.message.length < 3) return;
+//             let message = {};
+//             message.name = this.name; message.web = this.web; message.message = this.message;
+//             firebase.firestore().collection("messages").doc().set(message).then((res) => {
+//               alert('Your message is added');
+//               location.reload();
+//               this.name = ''; this.web = ''; this.message = '';
+//             })
+//           }
+//    }
+//  } 
 </script>

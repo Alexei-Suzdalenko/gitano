@@ -18,9 +18,9 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <router-link class="card list_map_site" v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/' + deleteEmptySpaces(city.work) + '/' + deleteEmptySpaces(city.city)">
+                    <router-link class="card list_map_site" v-for="(url, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/' + url">
                         <div class="card-body">
-                            <h6 class="card-title">{{ city.work }} {{ city.city }}</h6> 
+                            <h6 class="card-title">{{ deleteEmptySpaces(url) }}</h6> 
                         </div>
                     </router-link>
                    
@@ -30,8 +30,7 @@
     </div>
 </template>
 <script>
-import storageCitiesWorks from '@/storage/cities';
-import pueblos from '@/storage/listado_pueblos.js';
+import urls from '@/storage/urls';
 export default{
     data(){
         return{
@@ -39,20 +38,11 @@ export default{
         }
     },
     created(){ 
-       let arrayPrepare = []; 
-       for (let city of pueblos.listadoPueblos) {
-           for(let workData of storageCitiesWorks.works){
-               let currentObj = {};
-               currentObj.city = city.toLowerCase().capitalize();
-               currentObj.work = workData;
-               arrayPrepare.push(currentObj);
-           }
-       }
-      this.listCitiesAndWorks = arrayPrepare; 
+      this.listCitiesAndWorks = urls.urls; 
     },
     methods: {
         deleteEmptySpaces(x){
-            return x.replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-');
+            return x.replace('/', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ');
         }
     }
 }
