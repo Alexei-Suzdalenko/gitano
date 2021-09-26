@@ -1,4 +1,5 @@
 <template>
+    <ldjson />
     <div class="basic-3">
         <div class="container">
             <div class="row">
@@ -76,13 +77,14 @@
                     </ul>
                 </div> 
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <p class="p-small statement"><a href="/sitemap.xml" target="_blank">Copyright © Mudanzas Reto {{currentId()}}</a></p>
+                    <p class="p-small statement"><a href="/sitemap.xml" target="_blank">Copyright © Mudanzas Reto</a></p>
                 </div> 
             </div>
         </div>  
     </div>
 </template>
 <script>
+import ldjson from '@/components/IndexPage/LDJson';
 import storageCitiesWorks from '@/storage/cities';
 import app from "firebase/app";
 export default{
@@ -91,27 +93,28 @@ export default{
             listCitiesAndWorks: [], views: 0
         }
     },
+    components: { ldjson },
     created(){
-      let arrayPrepare = []; 
-    
-    let arrayCitiesEmpty = [];
-    if(window.location.pathname == '/') {
-        arrayCitiesEmpty = storageCitiesWorks.citiesSort
-    } else {
-        arrayCitiesEmpty = storageCitiesWorks.cities
-    }
-    
-    for (let city of arrayCitiesEmpty) {
-         arrayPrepare.push(city)
-      }
-      this.listCitiesAndWorks = arrayPrepare; 
+       this.insertScriptGooglePages();
+
+       let arrayPrepare = []; 
+       let arrayCitiesEmpty = [];
+       if(window.location.pathname == '/') {
+          arrayCitiesEmpty = storageCitiesWorks.citiesSort
+       } else {
+           arrayCitiesEmpty = storageCitiesWorks.cities
+       };
+       for (let city of arrayCitiesEmpty) {
+           arrayPrepare.push(city)
+       };
+       this.listCitiesAndWorks = arrayPrepare; 
        this.pushNewViewUser();
     },
     methods: {
-        currentId(){ 
-          this.insertScriptGooglePages();
-          return this.$route.params.workDetail;
-        },
+       // currentId(){ alert('call map api =>' + this.$route.params.workDetail)
+       //   // this.insertScriptGooglePages();
+       //   return this.$route.params.workDetail;
+       // },
         deleteEmptySpaces(x){
             return x.replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-');
         },
@@ -123,8 +126,9 @@ export default{
                 let scripts = el.getElementsByTagName( 'script' ); 
           
                 for(var i = 0; i < scripts.length; i++) {
-                 let sc = scripts[i];
-                 sc.remove();
+                  let sc = scripts[i];
+                  if(sc.type == 'application/ld+json') continue;
+                  sc.remove();
                 }
 
             };

@@ -23,7 +23,7 @@ function initMap() {
         return;
       }      
      
-      let address = 'España, Cantabria,' + cuidad;
+      let address = 'España ' + cuidad;
 
       new google.maps.Geocoder().geocode({ 'address': address }, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {

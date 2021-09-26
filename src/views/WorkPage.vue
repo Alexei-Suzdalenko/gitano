@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="text-box mb-5" v-if="photo_referenceArray.length > 0">
-                        <h3>Fotos {{ cityPage() }} Cantabria</h3>
+                        <h3>Fotos {{ cityPage() }} </h3>
                 </div>
                 <div class="col-lg-12" v-if="photo_referenceArray.length > 0">
                     <img class="image_galery mt-5 mb-3" v-on:load="onImgLoad" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="workPage() + ' ' + cityPage()">
