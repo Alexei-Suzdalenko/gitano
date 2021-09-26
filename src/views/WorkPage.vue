@@ -8,7 +8,7 @@
                         <h3>Fotos {{ cityPage() }} Cantabria</h3>
                 </div>
                 <div class="col-lg-12" v-if="photo_referenceArray.length > 0">
-                    <img class="img-fluid mt-5 mb-3" v-on:load="onImgLoad" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="cityPage()">
+                    <img class="image_galery mt-5 mb-3" v-on:load="onImgLoad" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[0]" v-bind:alt="workPage() + ' ' + cityPage()">
                 </div>
             </div> 
         </div> 
@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-xl-10 offset-xl-1"> 
                     <span v-for="(refer, index) in photo_referenceArray"  v-bind:key="index">
-                        <img v-if="photo_referenceArray[index+1]" class="img-fluid mb-5" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[index+1]" v-bind:alt="cityPage() + ' Cantabria'">
+                        <img v-if="photo_referenceArray[index+1]" class="image_galery mb-5" v-bind:src="'https://perersburgfree.000webhostapp.com/one.php?ref='+photo_referenceArray[index+1]" v-bind:alt="workPage() + ' ' + cityPage() + ' Cantabria'">
                     </span>
                     <ContentWorkPage v-bind:cityPage="cityPage()" />
                 </div> 
@@ -78,4 +78,14 @@ export default{
     },
 }
 </script>
-
+<style scoped>
+.image_galery{
+    width: 100%;
+    height: auto;
+    border: 4px solid grey;
+    border-radius: 22px;
+}
+.image_galery{
+    max-height: 90vh;
+}
+</style>

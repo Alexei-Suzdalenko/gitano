@@ -103,6 +103,35 @@ const cities = [
 'Tresviso'
 ];
 
+const citiesSort = [
+    'Santander',
+    'Torrelavega',
+    'Castro Urdiales',
+    'Camargo',
+    'Pielagos',
+    'El Astillero',
+    'Laredo',
+    'Santoña',
+    'Los Corrales de Buelna	',
+    'Reinosa',
+    'Santa Cruz de Bezana',
+    'Cabezon de la Sal',
+    'Reocin',
+    'Colindres',
+    'Suances',
+    'Santa Maria de Cayon',
+    'Solares',
+    'Marina de Cudeyo',
+    'San Vicente de la Barquera	',
+    'Ribamontan al Mar',
+    'Santillana del Mar',
+    'Cartes',
+    'Campoo de Enmedio',
+    'Polanco',
+    'Miengo',
+    'Ampuero'
+    ];
+
 const works = [ 'Mudanzas', 'Vaciados de pisos', 'Reformas', 'Pintura', 'Recogida muebles', 'Limpiezas' ];
 
-export default{ cities, works }
+export default{ cities, works, citiesSort }

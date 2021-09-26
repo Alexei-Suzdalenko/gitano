@@ -38,7 +38,9 @@ function initMap() {
               console.log('Geocode was not successful for the following reason: ' + status);
           }
       });
-}
+};
+
+
 
 
       

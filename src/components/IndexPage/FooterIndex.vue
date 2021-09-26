@@ -22,31 +22,31 @@
                     <p>Disponible próximamente</p>
                     <div class="social-container">
                         <span class="fa-stack">
-                            <a href="https://suzdalenko.com" target="_blank">
+                            <a href="https://play.google.com/store/apps/dev?id=8185819019973346070" target="_blank">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
-                             <a href="https://suzdalenko.com" target="_blank">
+                             <a href="https://play.google.com/store/apps/dev?id=8185819019973346070" target="_blank">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-twitter fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
-                             <a href="https://suzdalenko.com" target="_blank">
+                             <a href="https://play.google.com/store/apps/dev?id=8185819019973346070" target="_blank">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-google fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
-                             <a href="https://suzdalenko.com" target="_blank">
+                             <a href="https://play.google.com/store/apps/dev?id=8185819019973346070" target="_blank">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-instagram fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
-                            <a href="https://suzdalenko.com" target="_blank">
+                            <a href="https://play.google.com/store/apps/dev?id=8185819019973346070" target="_blank">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-youtube fa-stack-1x"></i>
                             </a>
@@ -57,7 +57,16 @@
         </div>
     </div>
 
-    <div class="copyright bg-gray" style="color: grey;">
+    <div class="copyright bg-gray" style="color: grey;">     
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" style="text-align: center;">
+                        <div v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/Mudanzas/' + deleteEmptySpaces(city)" class="div_links">
+                            <a class="cities_list" v-bind:href="'/Mudanzas/' + deleteEmptySpaces(city)">{{ city }}</a> 
+                        </div>
+                </div> 
+            </div> 
+        </div><br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -70,16 +79,7 @@
                     <p class="p-small statement"><a href="/sitemap.xml" target="_blank">Copyright © Mudanzas Reto {{currentId()}}</a></p>
                 </div> 
             </div>
-        </div>       
-        <div class="container">
-            <div class="row">
-                <div>
-                     <router-link v-for="(city, index) in listCitiesAndWorks" v-bind:key="index" v-bind:to="'/Mudanzas/' + deleteEmptySpaces(city)" class="list_cities">
-                        {{ city }}
-                     </router-link>
-                </div>
-            </div>
-        </div>
+        </div>  
     </div>
 </template>
 <script>
@@ -92,11 +92,19 @@ export default{
         }
     },
     created(){
-       let arrayPrepare = []; 
-       for (let city of storageCitiesWorks.cities) {
-          arrayPrepare.push(city)
-       }
-       this.listCitiesAndWorks = arrayPrepare; 
+      let arrayPrepare = []; 
+    
+    let arrayCitiesEmpty = [];
+    if(window.location.pathname == '/') {
+        arrayCitiesEmpty = storageCitiesWorks.citiesSort
+    } else {
+        arrayCitiesEmpty = storageCitiesWorks.cities
+    }
+    
+    for (let city of arrayCitiesEmpty) {
+         arrayPrepare.push(city)
+      }
+      this.listCitiesAndWorks = arrayPrepare; 
        this.pushNewViewUser();
     },
     methods: {
@@ -113,8 +121,7 @@ export default{
                 document.querySelector("[src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcJoJrGaUb_Gx1GJ2Swnh2N3gdF926Gw&callback=initMap']").remove()
                 var el = document.getElementsByTagName('head')[0]
                 let scripts = el.getElementsByTagName( 'script' ); 
-                console.log('el', el)
-                console.log('scripts', scripts)
+          
                 for(var i = 0; i < scripts.length; i++) {
                  let sc = scripts[i];
                  sc.remove();
@@ -156,30 +163,21 @@ export default{
     }
 }
 
-
-
-//  import app from "firebase/app";
-//  export default {
-//    created(){
-//    
-//      app.database().ref('users/' + "userId").set({
-//        username: "name",
-//        email: "email",
-//        profile_picture : "imageUrl"
-//      });
-//    
-//    },  
-//    methods: {
-//           send(){
-//             if(this.name.length < 3 || this.web.length < 3 || this.message.length < 3) return;
-//             let message = {};
-//             message.name = this.name; message.web = this.web; message.message = this.message;
-//             firebase.firestore().collection("messages").doc().set(message).then((res) => {
-//               alert('Your message is added');
-//               location.reload();
-//               this.name = ''; this.web = ''; this.message = '';
-//             })
-//           }
-//    }
-//  } 
 </script>
+
+<style scoped>
+.cities_list:hover{
+    cursor: pointer;
+}
+.cities_list{
+    font-size: 14px;
+    color: #9d9db7;
+}
+.div_links{ margin:10px; width:20%; display:inline-block;}
+
+@media only screen and (max-width: 800px) {
+  .div_links {
+    width: 45%;
+  }
+}
+</style>

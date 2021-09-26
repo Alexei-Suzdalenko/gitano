@@ -4,16 +4,15 @@
             <div class="row">
                 <div class="col-xl-10 offset-xl-1">
                     <h1><a v-bind:href="currentId()" class="a_title_page">{{ title }}</a></h1>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
+                </div> 
+            </div>
+        </div>
     </header>
   <div class="ex-basic-1 pt-5 pb-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <img class="img-fluid mt-5 mb-3" v-bind:src="images[0]" v-bind:alt="title"
-          />
+          <img class="img-fluid mt-5 mb-3" v-bind:src="images[0]" v-bind:alt="title" />
         </div>
       </div>
     </div>

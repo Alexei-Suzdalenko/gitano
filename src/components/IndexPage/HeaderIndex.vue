@@ -1,9 +1,9 @@
 <template>
     <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
-            <router-link class="navbar-brand logo-image" to="/" style="margin-top:-11px;">
+            <a class="navbar-brand logo-image" href="https://mudanzasreto.com" style="margin-top:-11px;">
                 <i class="fa fa-truck icon_image" aria-hidden="true"></i> <span class="header_title">MUDANZAS RETO</span>
-            </router-link> 
+            </a> 
             <button class="navbar-toggler p-0 border-0" type="button" aria-label="Toggle navigation" v-on:click="openMainMenu">
                 <span class="navbar-toggler-icon" id="click_button_top_menu"></span>
             </button>
