@@ -36,10 +36,12 @@
       <div class="flex-grow-1"> <strong>Recogida de maquinaria</strong> en desuso, chatarra, muebles inútiles</div>
     </li>
   </ul>
-  <a class="btn-solid-reg mb-5" href="tel:+34722337385"><i class="fas fa-phone-alt"></i> 722 33 73 85</a>
+  <a class="btn-solid-reg mb-5" href="tel:+34643449721"><i class="fas fa-phone-alt"></i> 643 449 721</a>
 </template>
 <script>
 export default{
     props: ['cityPage']
 }
 </script>
+
+

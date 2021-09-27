@@ -73,6 +73,9 @@ export default {
               this.desc1 = objInfo.desc1;
               this.desc2 = objInfo.desc2;
               this.images = objInfo.images;
+
+              document.title = this.title;
+              document.getElementsByTagName('meta').namedItem('description').setAttribute('content', 'Mudanzas, ' + this.title + ' ' + objInfo.desc2)
           }  
       }
   }

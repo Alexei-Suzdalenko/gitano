@@ -7,7 +7,7 @@
                     <div class="text-container">
                         <h2>Servicio atención al cliente</h2>
                         <p class="p-large">En Mudanzas Reto estamos a tu plena disposición con cualquier tipo de pregunta duda o sugerencia, no dudes en escribirnos o llamarnos. <br> Trabajamos para ti</p>
-                        <a class="btn-solid-lg" href="https://api.whatsapp.com/send?phone=34722337385&text=Hola"><i class="fab fa-whatsapp"> 722 33 73 85</i></a>
+                        <a class="btn-solid-lg" href="https://api.whatsapp.com/send?phone=+34643449721&text=Hola"><i class="fab fa-whatsapp"> 643 449 721</i></a>
                     </div> 
                 </div>
             </div> 
@@ -15,7 +15,7 @@
     </div> 
     
     <div class="footer bg-gray">
-        <img class="decoration-circles" src="/images/decoration-circles.png" alt="Mudanzas Centro Reto">
+        <img class="decoration-circles" src="/images/decoration-circles.png" alt="Centro Mudanzas Reto">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -90,7 +90,7 @@ import app from "firebase/app";
 export default{
     data(){
         return{
-            listCitiesAndWorks: [], views: 0
+            listCitiesAndWorks: [], views: 'Cargando...'
         }
     },
     components: { ldjson },
