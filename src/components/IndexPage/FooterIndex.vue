@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <ul class="list-unstyled li-space-lg p-small">
-                        <li><a href="#">Aviso legal y politica de privacidad</a></li>
+                        <li><img src="/images/mudanzas-reto.png" alt="Centro Mudanzas Reto" class="image_footer" /><a href="#">Aviso legal y politica de privacidad</a></li>
                         <li><a href="/">Visitas {{ views }}</a></li>
                     </ul>
                 </div> 
@@ -183,5 +183,9 @@ export default{
   .div_links {
     width: 45%;
   }
+}
+
+.image_footer{
+    width: 35px; margin-right: 11px;
 }
 </style>
