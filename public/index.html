@@ -43,10 +43,9 @@
       gtag('js', new Date());
       gtag('config', 'G-JEDCBYKJLP');
 
-      if ('serviceWorker' in navigator) {// alert('in navigator');
+      if ('serviceWorker' in navigator) {  
             window.addEventListener('load', function() { 
-              // alert('load');
-              navigator.serviceWorker.register('/js/worker.js');
+              navigator.serviceWorker.register('/sw2.js');
         });
       };
     </script>
